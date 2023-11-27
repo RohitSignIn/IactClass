@@ -73,15 +73,47 @@
 
 # print(max)
 
+# 7. Display sum of all two digits and three digits Number
+# a = [22,3,11,444,12,13,88882,3,4]
+# twoDigit = 0
+# threeDigit = 0
+# for i in a:
+#     aLen = len(str(i))
+#     if(aLen == 2):
+#         twoDigit += i
+#     elif(aLen == 3):
+#         threeDigit += i
 
-a = [22,3,11,444,12,13,88882,3,4]
-twoDigit = 0
-threeDigit = 0
-for i in a:
-    aLen = len(str(i))
-    if(aLen == 2):
-        twoDigit += i
-    elif(aLen == 3):
-        threeDigit += i
+# print(twoDigit, threeDigit)
 
-print(twoDigit, threeDigit)
+
+
+# BASIC CONCEPTS 
+
+# LIST = Mutable, []
+# TUPLE = Immutable, ()
+
+
+# Dictionary = Mutable, {} 
+
+# a = {
+#     "name": "Rohit",
+#     "lecture": {
+#         "lec1": "Data Science",
+#         "lec2": "Python"        
+#     }
+# }
+
+# print(a["lecture"]["lec1"])
+
+# a = {1,2,4,5,1}
+# a[0] = 4
+
+
+# a = {
+#     "name": "Rohit",
+#     "lecture": {
+#         "lec1": "Data Science",
+#         "lec2": "Python"        
+#     }
+# }
