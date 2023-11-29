@@ -43,70 +43,56 @@
 # 3, 2
 
 
-# def op1(a):
-#     # op 1
-#     count = 0
-#     for indx, val in enumerate(a):
-#         if(a[indx] == -1): continue 
-#         if(a[indx]&1 and count < 1):
-#             count+=1
-#         elif(a[indx]&1):
-#             a[indx] = -1
-#             break
-
-#     return a
-
-# def op2(a):
-#     # op 2
-#     for indx, val in enumerate(a):
-#         if(a[indx] == -1): continue
-#         a[indx] = a[indx] // 2
-
-#     return a
+# op1
+def op1(a):
+    oddCount = 0
+    for i in range(len(a)):
+        if(a[i] == -1): continue
+        if(oddCount == 0 and a[i]&1):
+            oddCount += 1
+        elif(a[i]&1):
+            a[i] = -1
+            break
+    return a
 
 
-# def oddSumCount(a):
-#     sum = 0
-#     for i in a:
-#         if(i == -1): continue 
-#         sum += i
-#     if(sum&1):
-#         return True
-#     return False
+# op 2
+def op2(a):
+    for i in range(len(a)):
+        if(a[i] == -1): continue
+        a[i] = a[i] // 2
+    return a
 
-# def oddSum(a, operations):
-#     while(True):
-#         if(oddSumCount(a)):
-#             return operations
+def chaeckOdd(a):
+    sum = 0
+    for i in a:
+        if(i == -1): continue
+        sum += i
+
+    if(sum&1):
+        return True
+    else:
+        return False
+
+
+def oddSum(a):
+    operations = 0
+    while(True):
+        if(chaeckOdd(a)):
+            return operations
+        count = 0
+        for i in a:
+            if(i == -1): continue
+            if(i&1):
+                count+=1
+
+        if(count > 1):
+            a = op1(a)
+        elif(count == 0):
+            a = op2(a)
+
+        operations += 1
         
-#         oddCount = 0
-#         for i in a:
-#             if(i == -1): continue 
-#             if(i&1):
-#                 oddCount += 1
 
-#         if(oddCount > 1):
-#             a = op1(a)
-#         elif(oddCount == 0):
-#             a = op2(a)
-
-#         operations += 1
-
-# a = [6,4,10]
-# operations = 0
-# print(oddSum(a, operations))
-
-# class name:
-#     def __init__(self):
-#         self.name 
-#         print("Hello")
-
-#     def hello():
-#         print("Hello World")
-
-
-# obj = name()
-# obj.hello()
-
-
-# Bitwise AND 
+a = [6,4,10]
+print("Minimum Operations", oddSum(a))
