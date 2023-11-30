@@ -20,8 +20,42 @@
 # print()
 
 
-sum = 0
-for i in [2,3,4,5]:
-    sum = sum + i
+# sum = 0
+# for i in [2,3,4,5]:
+#     sum = sum + i
 
-print(sum)
+# print(sum)
+
+# a = "abcd"
+# print(a[1:])
+
+
+# a = [6, 2, 1]
+# sum = 0
+
+# for i in a:
+#     sum -= i
+
+# print(sum)
+
+
+
+# a= "abc"
+# length =len(a)
+
+# count =0
+
+# for i in range(length):
+#     val =a[0:count]
+#     count +=1
+#     print(val) 
+
+
+
+# get all possible Substring 
+a = "abcd"
+for indx, val in enumerate(a):
+    temp = ""
+    for j in range(indx, len(a), 1):
+        temp += a[j]
+        print(temp)
