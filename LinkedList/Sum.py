@@ -46,23 +46,33 @@ def removeAtEnd(head):
     temp["next"] = None
     return head
 
-head = None
-head = addAtHead(head, 4)
-head = addAtHead(head, 3)
-head = addAtHead(head, 2)
-head = addAtHead(head, 1)
+h1 = None 
+h2 = None
+h3 = None
 
-head = addAtTail(head, 6)
-head = addAtTail(head, 7)
-head = removeAtHead(head)
-head = removeAtHead(head)
-head = removeAtHead(head)
+h1 = addAtHead(h1, 3)
+h1 = addAtHead(h1, 2)
+h1 = addAtHead(h1, 1)
 
+h2 = addAtHead(h2, 1)
+h2 = addAtHead(h2, 2)
+h2 = addAtHead(h2, 3)
 
-head = removeAtEnd(head)
-head = removeAtEnd(head)
+# printLinkedList(h1)
+# printLinkedList(h2)
 
-head = removeAtEnd(head)
+def sumLinkedList(h1, h2, h3):
+    t1 = h1 
+    t2 = h2
 
+    while(t1 != None and t2 != None):
+        h3 = addAtTail(h3, t1["data"] + t2["data"])
 
-printLinkedList(head)
+        t1 = t1["next"]
+        t2 = t2["next"]
+    
+    return h3
+
+h3 = sumLinkedList(h1, h2, h3)
+
+printLinkedList(h3)
