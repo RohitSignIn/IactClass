@@ -53,6 +53,10 @@ h3 = None
 h1 = addAtHead(h1, 3)
 h1 = addAtHead(h1, 2)
 h1 = addAtHead(h1, 1)
+h1 = addAtHead(h1, 5)
+h1 = addAtHead(h1, 6)
+
+
 
 h2 = addAtHead(h2, 1)
 h2 = addAtHead(h2, 2)
@@ -73,6 +77,38 @@ def sumLinkedList(h1, h2, h3):
     
     return h3
 
-h3 = sumLinkedList(h1, h2, h3)
 
+def getLength(head):
+    temp = head
+    count = 0
+    while(temp != None):
+        count+=1
+        temp = temp["next"]
+
+    return count
+
+def makeSameSizeList(h1, h2, h3):
+    h1Len = getLength(h1)
+    h2Len = getLength(h2)
+
+    diff = abs(h1Len - h2Len)
+
+    small = None
+    if(h1Len < h2Len):
+        small = h1
+    else:
+        small = h2
+
+    while(diff > 0):
+        small = addAtHead(small, 0)
+        diff -= 1
+
+    if(h1Len < h2Len):
+        h1 = small
+    else:
+        h2 = small
+
+    return sumLinkedList(h1, h2, h3)
+    
+h3 = makeSameSizeList(h1, h2, h3)
 printLinkedList(h3)
