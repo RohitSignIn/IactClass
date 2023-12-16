@@ -1,14 +1,13 @@
 from tkinter import *
 
+# Form Root 
+root = Tk()
 
-root  = Tk()
-
-
-# Build Label
+# Label Form 
 label = Label(root, text="Hello World")
 
 # Show Label
-label.grid(row=0, column=0)
+label.pack()
 
 
 root.mainloop()
