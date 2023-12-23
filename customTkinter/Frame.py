@@ -6,8 +6,6 @@ app.geometry("800x600")
 app.grid_rowconfigure(0, weight=1)
 app.grid_columnconfigure(1, weight=1)
 
-
-
 def homeLayout():
     mainLayout = customtkinter.CTkFrame(app, fg_color="red")
     mainLayout.grid(row=0, column=1, sticky="ewns")
