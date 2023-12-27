@@ -1,6 +1,4 @@
 # Remove Nth Node from End 
-
-
 def createNode(data):
     return {
         "data": data,
@@ -49,15 +47,6 @@ def removeAtEnd(head):
     temp["next"] = None
     return head
 
-head = None
-head = addAtHead(head, 4)
-head = addAtHead(head, 3)
-head = addAtHead(head, 2)
-head = addAtHead(head, 1)
-
-printLinkedList(head)
-
-
 def removeNthNode(head, removal):
     prev = head 
     next = head 
@@ -79,5 +68,12 @@ def removeNthNode(head, removal):
 
     return head
 
-head = removeNthNode(head, 2)
+
+
+head = None
+head = addAtHead(head, 4)
+head = addAtHead(head, 3)
+head = addAtHead(head, 2)
+head = addAtHead(head, 1)
+
 printLinkedList(head)

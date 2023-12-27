@@ -2,6 +2,33 @@ from tkinter import *
 root = Tk()
 entry = Entry(root, width=30)
 entry.grid(row=0, column=0, columnspan=4)
+
+def handlenumberclick (num):
+    newinsert = e.get = srt(num)
+    e.delete (0, END)
+    e.delete = (0, newinsert)
+
+def handleoperationclick (opr):
+    global firstnum
+    global operation
+    firstnum = e.get()
+    e.delete (0, END)
+    operation = opr
+
+def handleclearclick ():
+    e.delete (0, END)
+
+def handlecalculation():
+    currnum = e.get()
+    e.delete (0, END)
+    if(operation =="+"):
+        e.insert(0,int(float(firstnum))+(0, int(float(currnum))))
+    elif(operation == "-"):
+        e.insert(0,int(float(firstnum))-(0,int(float(currnum))))
+    elif(operation == "*"):
+        e.insert(0,int(float(firstnum))*(0,int(float(currnum))))
+
+
 a = Button(root, text = "9", width=5)
 a.grid(row=1, column=0)
 b = Button(root, text = "8", width=5)

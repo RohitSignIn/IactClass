@@ -6,7 +6,8 @@ app = customtkinter.CTk()
 app.geometry("800x600")
 app.title("App")
 app.grid_rowconfigure(0, weight=1)
-app.grid_columnconfigure(0, weight=1)
+app.grid_columnconfigure(0, weight=2)
+app.grid_columnconfigure(1, weight=1)
 
 
 # SideBar Frame 
