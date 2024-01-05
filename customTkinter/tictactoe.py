@@ -1,3 +1,4 @@
+from CTkMessagebox import CTkMessagebox
 import customtkinter
 
 app = customtkinter.CTk()
@@ -31,44 +32,6 @@ def handleBtnClick(btnNum):
     movesDone[btnNum] = playerTurn
     checkWinner(playerTurn)
 
-    # CHANGE PLAYER TURN
-    if(playerTurn == "x"):
-        playerTurn = "o"
-    else:
-        playerTurn = "x"
-
-def checkWinner(playerTurn):
-    global movesDone
-    global winner 
-
-    possibleWinnerCases = [
-        [0,1,2],
-        [3,4,5],
-        [6,7,8],
-        [0,3,6],
-        [1,4,7],
-        [2,5,8],
-        [0,4,8],
-        [2,4,6],
-    ]
-
-    for i in possibleWinnerCases:
-        winner = True
-        for j in i:
-            if j in movesDone:
-                if(movesDone[j] != playerTurn):
-                    winner = False
-                    break
-            else:
-                winner = False
-                break
-            
-        if(winner):
-            break
-
-    if(winner):
-        print("winner is ", playerTurn)
-            
 
 
 def getInitialStruc():
@@ -95,7 +58,53 @@ def getInitialStruc():
     btn6.grid(row=2, column=0, padx=5, pady=5)
     btn7.grid(row=2, column=1, padx=5, pady=5)
     btn8.grid(row=2, column=2, padx=5, pady=5)
-    
+
+def checkWinner(turn):
+    global movesDone
+    global winner 
+    global playerTurn
+
+
+    possibleWinnerCases = [
+        [0,1,2],
+        [3,4,5],
+        [6,7,8],
+        [0,3,6],
+        [1,4,7],
+        [2,5,8],
+        [0,4,8],
+        [2,4,6],
+    ]
+
+    for i in possibleWinnerCases:
+        winner = True
+        for j in i:
+            if j in movesDone:
+                if(movesDone[j] != turn):
+                    winner = False
+                    break
+            else:
+                winner = False
+                break
+
+        if(winner):
+            break
+
+    if(winner):
+        messagePrompt = "{} Won"
+        messagePrompt = messagePrompt.format(turn)
+        promptInput = CTkMessagebox(title="Got Winner", message=messagePrompt, option_1="Start New Game", option_2="Cancel")
+        if(promptInput.get() == "Start New Game"):
+            getInitialStruc()
+            movesDone = {}
+            winner = False
+            playerTurn = turn
+    else:
+        # CHANGE PLAYER TURN
+        if(playerTurn == "x"):
+            playerTurn = "o"
+        else:
+            playerTurn = "x"
 
 
 ticTacToeFrame = customtkinter.CTkFrame(app, width=400, height=400,fg_color="transparent", corner_radius=0)
