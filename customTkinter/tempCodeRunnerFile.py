@@ -1,1 +1,2 @@
- print(btn)
+
+app= customtkinter.CTk()

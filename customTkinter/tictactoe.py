@@ -8,10 +8,14 @@ app.title("Tic Tac Toe")
 app.grid_rowconfigure(0, weight=1)
 app.grid_columnconfigure(0, weight=1)
 
+# GLOBAL 
 playerTurn = "x"
+movesDone = {} 
+winner = False
 
 def handleBtnClick(btnNum):
     global playerTurn
+
 
     # FORM NEW BUTTON
     btn = customtkinter.CTkButton(ticTacToeFrame, text=playerTurn, width=120, height=120, corner_radius=0, fg_color="#fff", text_color="#2d2d2d", hover_color="#fff", font=("helvetica", 68, "bold"))
@@ -24,11 +28,48 @@ def handleBtnClick(btnNum):
     elif(btnNum >= 6 and btnNum < 9):
         btn.grid(row=2, column=abs(btnNum-6), padx=5, pady=5)
 
+    movesDone[btnNum] = playerTurn
+    checkWinner(playerTurn)
+
     # CHANGE PLAYER TURN
     if(playerTurn == "x"):
         playerTurn = "o"
     else:
         playerTurn = "x"
+
+def checkWinner(playerTurn):
+    global movesDone
+    global winner 
+
+    possibleWinnerCases = [
+        [0,1,2],
+        [3,4,5],
+        [6,7,8],
+        [0,3,6],
+        [1,4,7],
+        [2,5,8],
+        [0,4,8],
+        [2,4,6],
+    ]
+
+    for i in possibleWinnerCases:
+        winner = True
+        for j in i:
+            if j in movesDone:
+                if(movesDone[j] != playerTurn):
+                    winner = False
+                    break
+            else:
+                winner = False
+                break
+            
+        if(winner):
+            break
+
+    if(winner):
+        print("winner is ", playerTurn)
+            
+
 
 def getInitialStruc():
     btn0 = customtkinter.CTkButton(ticTacToeFrame, text="", width=120, height=120, corner_radius=0, fg_color="#fff", hover_color="#2d2d2d", command=lambda: handleBtnClick(0))
